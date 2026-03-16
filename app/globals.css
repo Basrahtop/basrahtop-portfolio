@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Design Tokens ─────────────────────────────── */
+:root {
+  --canvas:      #0a0a0a;
+  --canvas-soft: #111111;
+  --accent:      #d4ff00;
+  --accent-dim:  #a8cc00;
+  --text-1:      #ffffff;
+  --text-2:      #a0a0a0;
+  --text-3:      #555555;
+  --border:      rgba(255,255,255,0.08);
+  --radius:      0.75rem;
+
+  /* spacing scale */
+  --section-y: 7rem;
+}
+
+/* ── Base ───────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  background: var(--canvas);
+  color: var(--text-1);
+}
+
+body {
+  background: var(--canvas);
+  color: var(--text-1);
+  font-family: var(--font-body), serif;
+  overflow-x: hidden;
+  cursor: none;           /* hide default — custom cursor takes over */
+}
+
+/* Keep pointer for interactive elements so custom cursor gets the signal */
+a, button, [role="button"], input, textarea, label, select { cursor: none; }
+
+/* ── Scrollbar ──────────────────────────────────── */
+::-webkit-scrollbar              { width: 4px; }
+::-webkit-scrollbar-track        { background: var(--canvas); }
+::-webkit-scrollbar-thumb        { background: var(--accent); border-radius: 2px; }
+
+/* ── Selection ──────────────────────────────────── */
+::selection { background: var(--accent); color: var(--canvas); }
+
+/* ── Typography helpers ─────────────────────────── */
+.font-display { font-family: var(--font-display), sans-serif; }
+.font-body    { font-family: var(--font-body),    serif; }
+
+.text-accent  { color: var(--accent); }
+.bg-canvas    { background: var(--canvas); }
+
+/* ── Section spacing ────────────────────────────── */
+.section-padding { padding-top: var(--section-y); padding-bottom: var(--section-y); }
+
+/* ── Noise overlay for depth ────────────────────── */
+.noise::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  z-index: 9999;
+}
+
+/* ── Magnetic button base ───────────────────────── */
+.mag-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: color 0.3s ease;
+}
+
+/* ── Gradient border helper ─────────────────────── */
+.accent-border {
+  border: 1px solid var(--border);
+  transition: border-color 0.3s;
+}
+.accent-border:hover { border-color: var(--accent); }
+
+/* ── Reveal animation classes (driven by Framer) ── */
+.will-reveal { will-change: transform, opacity; }
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
