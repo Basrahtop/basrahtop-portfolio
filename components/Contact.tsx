@@ -79,23 +79,9 @@ export default function Contact() {
               </p>
             </SectionReveal>
 
-            {/* Email */}
-            <SectionReveal delay={0.25}>
-              <a
-                href="mailto:devbasrahtop@gmail.com"
-                data-cursor="EMAIL"
-                className="inline-flex items-center gap-3 font-display text-xl font-semibold text-text-1 hover:text-accent transition-colors duration-200 mb-12 group"
-              >
-                devbasrahtop@gmail.com
-                <svg className="w-5 h-5 text-accent transition-transform duration-200 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </a>
-            </SectionReveal>
-
             {/* Social links */}
-            <SectionReveal delay={0.3}>
-              <div className="flex items-center gap-4">
+            <SectionReveal delay={0.25}>
+              <div className="flex items-center gap-4 mb-12">
                 {SOCIALS.map(({ label, href, icon }) => (
                   <a
                     key={label}
