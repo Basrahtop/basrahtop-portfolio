@@ -51,8 +51,8 @@ const PROJECTS: Project[] = [
   },
   {
     title: "Catalyst",
-    description: "A TypeScript web application exploring and surfacing Cardano Project Catalyst proposals — helping community members discover, track, and engage with funded innovations in the Cardano ecosystem.",
-    stack: ["TypeScript", "Next.js", "Cardano", "Web3"],
+    description: "Blockchain-powered financial inclusion platform transforming Nigeria's 40M invisible MSMEs into a globally investible asset class. Replaces collateral with verifiable digital trust via a 1,000-point reputation engine, multi-currency investment (NGN, ADA, USDM), Aiken smart contract escrow, and a regenerative 4-Way Split profit model — bridging a $32.2B SME financing gap.",
+    stack: ["TypeScript", "Next.js", "Cardano", "Aiken", "PostgreSQL", "Prisma"],
     live: "https://catalyst-landing-page-rho.vercel.app/",
     github: "https://github.com/Basrahtop/Catalyst",
     status: "Live",
