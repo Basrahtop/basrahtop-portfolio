@@ -23,9 +23,15 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Basrah | Portfolio",
-  description: "Graphic Designer · Web3 Developer · Event Organiser — crafting digital experiences on the Cardano ecosystem.",
-  keywords: ["portfolio", "graphic design", "web3", "cardano", "event organiser", "blockchain"],
+  title: "Abdulbasit Adigun | DevbasrahtopIT",
+  description: "Graphic Designer · Web3 Marketing Strategist · Full-Stack Developer · Event Organiser — crafting digital experiences on the Cardano ecosystem.",
+  keywords: ["portfolio", "graphic design", "web3", "cardano", "event organiser", "blockchain", "DevbasrahtopIT"],
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
