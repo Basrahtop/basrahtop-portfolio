@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 
-const ROLES = ["Graphic Designer", "Web Developer", "Event Organiser", "Volunteer", "Creative"];
+const ROLES = ["Graphic Designer", "Web Developer", "Web3 Marketing Strategist", "Event Organiser", "Volunteer", "Creative"];
 
 /* ── Reusable reveal wrapper ─────────────────────── */
 function Reveal({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
