@@ -3,7 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 
-const ROLES = ["Graphic Designer", "Web Developer", "Web3 Marketing Strategist", "Event Organiser", "Volunteer", "Creative"];
+const ROLES = ["Graphic Designer", "Web Developer", "Marketing Strategist", "Event Organiser", "Volunteer", "Creative"];
+const VOWEL_ROLES = ["Event Organiser"];
 
 /* ── Reusable reveal wrapper ─────────────────────── */
 function Reveal({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
@@ -101,7 +102,7 @@ export default function Hero() {
         {/* Animated role switcher */}
         <Reveal delay={0.35}>
           <div className="flex items-center gap-3 mb-10 overflow-hidden h-12">
-            <span className="text-text-2 font-body text-xl italic">I am a</span>
+            <span className="text-text-2 font-body text-xl italic">I am {VOWEL_ROLES.includes(ROLES[roleIndex]) ? "an" : "a"}</span>
             <div className="relative overflow-hidden h-12 flex items-center">
               <AnimatePresence mode="wait">
                 <motion.span
