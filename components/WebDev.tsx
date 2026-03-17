@@ -15,6 +15,14 @@ interface Project {
 
 const PROJECTS: Project[] = [
   {
+    title: "Catalyst",
+    description: "Blockchain-powered financial inclusion platform transforming Nigeria's 40M invisible MSMEs into a globally investible asset class. Replaces collateral with verifiable digital trust via a 1,000-point reputation engine, multi-currency investment (NGN, ADA, USDM), Aiken smart contract escrow, and a regenerative 4-Way Split profit model — bridging a $32.2B SME financing gap.",
+    stack: ["TypeScript", "Next.js", "Cardano", "Aiken", "PostgreSQL", "Prisma"],
+    live: "https://catalyst-landing-page-rho.vercel.app/",
+    github: "https://github.com/Basrahtop/Catalyst",
+    status: "Live",
+  },
+  {
     title: "PeaceguardAI",
     description: "🕊️ AI-powered platform advancing global information integrity and peace. Detects misinformation and supports ethical information sharing at scale.",
     stack: ["Python", "AI / ML", "NLP", "Peace Tech"],
@@ -48,14 +56,6 @@ const PROJECTS: Project[] = [
     stack: ["JavaScript", "Cardano", "Aiken", "Blockchain"],
     github: "https://github.com/Basrahtop/nova-smart-contracts",
     status: "In Progress",
-  },
-  {
-    title: "Catalyst",
-    description: "Blockchain-powered financial inclusion platform transforming Nigeria's 40M invisible MSMEs into a globally investible asset class. Replaces collateral with verifiable digital trust via a 1,000-point reputation engine, multi-currency investment (NGN, ADA, USDM), Aiken smart contract escrow, and a regenerative 4-Way Split profit model — bridging a $32.2B SME financing gap.",
-    stack: ["TypeScript", "Next.js", "Cardano", "Aiken", "PostgreSQL", "Prisma"],
-    live: "https://catalyst-landing-page-rho.vercel.app/",
-    github: "https://github.com/Basrahtop/Catalyst",
-    status: "Live",
   },
 ];
 
