@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import SectionReveal from "./SectionReveal";
 
@@ -10,10 +11,38 @@ interface Project {
   stack: string[];
   live?: string;
   github?: string;
-  status: "Live" | "In Progress" | "Open Source";
+  internal?: { href: string; label: string };
+  status: "Live" | "In Progress" | "Open Source" | "Private";
 }
 
 const PROJECTS: Project[] = [
+  {
+    title: "Aegis",
+    description: "Multi-model AI security code review and audit. Model reviewers propose findings, a verifier jury votes on them, and deterministic scanners run alongside. Private and under active development. Details and demo on request.",
+    stack: ["AI Agents", "Multi-Model", "Security"],
+    internal: { href: "/aegis", label: "Read the case study" },
+    status: "Private",
+  },
+  {
+    title: "Showrium",
+    description: "Idea-to-post platform that turns one idea into platform-native posts, running on Cloudflare Workers with a public API, a TypeScript SDK and an MCP server. In beta.",
+    stack: ["TypeScript", "React", "Cloudflare Workers", "D1", "MCP"],
+    github: "https://github.com/Nextrium/showrium",
+    status: "Open Source",
+  },
+  {
+    title: "Aegis Scan",
+    description: "Reusable GitHub Actions workflow that runs pinned security scanners (Opengrep, OSV-Scanner, Gitleaks, zizmor) on a commit and uploads the results to Aegis for triage.",
+    stack: ["GitHub Actions", "Security", "OIDC"],
+    github: "https://github.com/Nextrium/aegis-scan",
+    status: "Open Source",
+  },
+  {
+    title: "AI Candidate Screening Agent",
+    description: "Candidate screening agent built on a multi-model ensemble, with a candidate rebuttal step and recruiter override.",
+    stack: ["AI Agents", "Multi-Model"],
+    status: "Private",
+  },
   {
     title: "Catalyst",
     description: "Blockchain-powered financial inclusion platform transforming Nigeria's 40M invisible MSMEs into a globally investible asset class. Replaces collateral with verifiable digital trust via a 1,000-point reputation engine, multi-currency investment (NGN, ADA, USDM), Aiken smart contract escrow, and a regenerative 4-Way Split profit model — bridging a $32.2B SME financing gap.",
@@ -63,6 +92,7 @@ const STATUS_COLORS: Record<string, string> = {
   "Live":        "bg-emerald-500/20 text-emerald-400 border-emerald-500/30",
   "In Progress": "bg-amber-500/20   text-amber-400   border-amber-500/30",
   "Open Source": "bg-accent/20       text-accent       border-accent/30",
+  "Private":     "bg-white/10        text-text-2       border-white/20",
 };
 
 export default function WebDev() {
@@ -116,7 +146,7 @@ export default function WebDev() {
                   <span className={`text-[10px] font-display tracking-widest uppercase border px-3 py-1 ${STATUS_COLORS[project.status]}`}>
                     {project.status}
                   </span>
-                  <span className="text-text-3 font-display text-xs">0{i + 1}</span>
+                  <span className="text-text-3 font-display text-xs">{String(i + 1).padStart(2, "0")}</span>
                 </div>
 
                 {/* Title */}
@@ -143,6 +173,18 @@ export default function WebDev() {
 
                 {/* Links */}
                 <div className="flex items-center gap-4 mt-auto">
+                  {project.internal && (
+                    <Link
+                      href={project.internal.href}
+                      data-cursor="READ"
+                      className="flex items-center gap-1.5 text-xs font-display tracking-wide text-accent hover:underline"
+                    >
+                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                      {project.internal.label}
+                    </Link>
+                  )}
                   {project.live && (
                     <a
                       href={project.live}

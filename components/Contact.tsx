@@ -3,6 +3,7 @@
 import { useState, FormEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import SectionReveal from "./SectionReveal";
+import { NEXTRIUM_URL, NEXTRIUM_ROLE } from "@/lib/site";
 
 const SOCIALS = [
   { label: "LinkedIn", href: "https://www.linkedin.com/in/devbasrahtop/", icon: "in" },
@@ -188,6 +189,21 @@ export default function Contact() {
         <SectionReveal delay={0.3}>
           <div className="mt-24 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4 text-text-3 text-sm font-body">
             <p>© {new Date().getFullYear()} Abdulbasit Adigun. All rights reserved.</p>
+            <p>
+              {NEXTRIUM_URL ? (
+                <a
+                  href={NEXTRIUM_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-cursor="VISIT"
+                  className="hover:text-accent transition-colors duration-200"
+                >
+                  {NEXTRIUM_ROLE}
+                </a>
+              ) : (
+                NEXTRIUM_ROLE
+              )}
+            </p>
           </div>
         </SectionReveal>
       </div>

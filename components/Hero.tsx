@@ -2,9 +2,10 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { NEXTRIUM_URL, NEXTRIUM_ROLE } from "@/lib/site";
 
-const ROLES = ["Graphic Designer", "Web Developer", "Marketing Strategist", "Event Organiser", "Volunteer", "Creative"];
-const VOWEL_ROLES = ["Event Organiser"];
+const ROLES = ["Applied AI Engineer", "Founder, NexTrium", "Full-Stack Developer", "Graphic Designer", "Event Organiser", "Cardano Reviewer"];
+const VOWEL_ROLES = ["Applied AI Engineer", "Event Organiser"];
 
 /* ── Reusable reveal wrapper ─────────────────────── */
 function Reveal({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
@@ -101,7 +102,7 @@ export default function Hero() {
 
         {/* Animated role switcher */}
         <Reveal delay={0.35}>
-          <div className="flex items-center gap-3 mb-10 overflow-hidden h-12">
+          <div className="flex items-center gap-3 mb-3 overflow-hidden h-12">
             <span className="text-text-2 font-body text-xl italic">I am {VOWEL_ROLES.includes(ROLES[roleIndex]) ? "an" : "a"}</span>
             <div className="relative overflow-hidden h-12 flex items-center">
               <AnimatePresence mode="wait">
@@ -118,6 +119,25 @@ export default function Hero() {
               </AnimatePresence>
             </div>
           </div>
+        </Reveal>
+
+        {/* NexTrium */}
+        <Reveal delay={0.4}>
+          <p className="font-display text-text-3 text-xs tracking-widest uppercase mb-10">
+            {NEXTRIUM_URL ? (
+              <a
+                href={NEXTRIUM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-cursor="VISIT"
+                className="hover:text-accent transition-colors duration-200"
+              >
+                {NEXTRIUM_ROLE}
+              </a>
+            ) : (
+              NEXTRIUM_ROLE
+            )}
+          </p>
         </Reveal>
 
         {/* Tagline */}

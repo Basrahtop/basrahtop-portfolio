@@ -23,9 +23,9 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Abdulbasit Adigun | DevbasrahtopIT",
-  description: "Graphic Designer · Web3 Marketing Strategist · Full-Stack Developer · Event Organiser — crafting digital experiences on the Cardano ecosystem.",
-  keywords: ["portfolio", "graphic design", "web3", "cardano", "event organiser", "blockchain", "DevbasrahtopIT"],
+  title: "Abdulbasit Adigun | Applied AI Engineer, Founder of NexTrium",
+  description: "Applied AI Engineer and Founder of NexTrium. Also a full-stack developer, graphic designer, event organiser and Cardano reviewer.",
+  keywords: ["applied AI engineer", "AI engineering", "NexTrium", "portfolio", "full-stack developer", "cardano", "graphic design", "event organiser", "web3", "DevbasrahtopIT"],
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },
