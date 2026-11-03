@@ -11,7 +11,7 @@ export const CANDOUR: CaseStudy = {
   tagline: "Candidate screening that explains itself and can be challenged",
   intro: "Private system, built at NexTrium Global Innovations. Details and demo on request.",
   lastReviewed,
-  notice: "This system is under development and details change.",
+  notice: "This system is in production and under active development, and details change.",
   contactSectionId: "availability",
   sections: [
     {
@@ -38,6 +38,24 @@ export const CANDOUR: CaseStudy = {
       ],
     },
     {
+      id: "production",
+      label: "In production",
+      heading: "What it has done so far",
+      paragraphs: [
+        "Candour is in production. Figures from its dashboard on 3 November 2026:",
+      ],
+      points: [
+        { title: "259 screenings completed", text: "Average score 62.4%. The last 10 batch jobs had no failed screenings. The most recent ran on 30 October 2026." },
+        { title: "258 feedback emails sent", text: "One more was pending dispatch when these figures were taken." },
+        { title: "Outcome tiers",            text: "Strong Fit: 104. Shortlisted: 102. Under Consideration: 40. Ecosystem Candidate: 13." },
+        { title: "Human verification",       text: "Every accepted candidate has been manually verified." },
+        { title: "Rebuttals and ratings",    text: "One rebuttal has been filed and reviewed. Two candidates have rated their report, both at 4 stars." },
+      ],
+      closing: [
+        "These are activity figures, not accuracy figures. Two ratings and one rebuttal are too few to judge fairness.",
+      ],
+    },
+    {
       id: "measurement",
       label: "Measurement",
       heading: "How I plan to measure it",
@@ -46,7 +64,7 @@ export const CANDOUR: CaseStudy = {
       ],
       points: [
         { title: "1. Candidate feedback",                     text: "Applicants rate the fairness and quality of their report and can rebut it. Feedback from shortlisted, reviewed and rejected candidates is meant to weigh more than feedback from accepted ones, because they are the people the system might have wronged." },
-        { title: "2. Recruiter review of accepted candidates", text: "A human review of everyone the system recommends confirms or corrects the result." },
+        { title: "2. Recruiter review of accepted candidates", text: "A human review of everyone the system recommends confirms or corrects the result. So far, every accepted candidate has been manually verified." },
       ],
       closing: [
         "Candidates can already rate their report, and the platform records ratings and rebuttals. The analysis that weights and combines these signals into an accuracy measure is not built yet, so I make no accuracy claim today.",
@@ -57,7 +75,7 @@ export const CANDOUR: CaseStudy = {
       label: "Status",
       heading: "Status and next steps",
       points: [
-        { title: "Now",            text: "Under active development." },
+        { title: "Now",            text: "In production and under active development." },
         { title: "Being fixed now", text: "The system targets two models per candidate but still produces a result if only one succeeds. It will require two, or mark the result as lower confidence." },
         { title: "Next",           text: "Build the analysis that turns candidate feedback and recruiter review into an accuracy measure, track how often the models disagree, and test the defence against hidden instructions in resumes." },
       ],
