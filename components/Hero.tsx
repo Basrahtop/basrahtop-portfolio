@@ -112,7 +112,7 @@ export default function Hero() {
                   animate={{ y: 0, opacity: 1 }}
                   exit={{ y: -48, opacity: 0 }}
                   transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-                  className="block font-display text-2xl md:text-3xl font-semibold text-accent"
+                  className="block whitespace-nowrap font-display text-xl sm:text-2xl md:text-3xl font-semibold text-accent"
                 >
                   {ROLES[roleIndex]}
                 </motion.span>

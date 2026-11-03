@@ -57,8 +57,6 @@ export default function CustomCursor() {
     };
   }, [x, y, dx, dy]);
 
-  if (typeof window === "undefined") return null;
-
   return (
     <>
       {/* Outer ring */}
