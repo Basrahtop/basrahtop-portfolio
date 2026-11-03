@@ -2,19 +2,13 @@
 // Aegis is private and changing quickly. Update `lastReviewed`
 // whenever any text in this file is checked or changed.
 
+import type { CaseStudy, CaseStudySection } from "./caseStudy";
+
 export const lastReviewed = "2026-11-03";
 
 export const AEGIS_NOTICE = "Aegis is under active development; details change quickly.";
 
-export interface AegisSection {
-  id: string;
-  label: string;
-  heading: string;
-  paragraphs?: string[];
-  points?: { title: string; text: string }[];
-}
-
-export const AEGIS_SECTIONS: AegisSection[] = [
+export const AEGIS_SECTIONS: CaseStudySection[] = [
   {
     id: "what",
     label: "What it is",
@@ -71,8 +65,10 @@ export const AEGIS_SECTIONS: AegisSection[] = [
   },
 ];
 
-export function formatReviewed(date: string) {
-  return new Date(`${date}T00:00:00Z`).toLocaleDateString("en-GB", {
-    day: "numeric", month: "long", year: "numeric", timeZone: "UTC",
-  });
-}
+export const AEGIS: CaseStudy = {
+  title: "Aegis",
+  lastReviewed,
+  notice: AEGIS_NOTICE,
+  sections: AEGIS_SECTIONS,
+  contactSectionId: "availability",
+};
