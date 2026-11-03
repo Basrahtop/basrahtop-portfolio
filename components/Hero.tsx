@@ -143,7 +143,7 @@ export default function Hero() {
         {/* Tagline */}
         <Reveal delay={0.45}>
           <p className="font-body text-text-2 text-lg md:text-xl max-w-md leading-relaxed mb-14">
-            Crafting bold visual identities, seamless digital experiences, and unforgettable events.
+            Building applied AI systems at NexTrium, alongside full-stack products, visual design and community events.
           </p>
         </Reveal>
 
@@ -151,7 +151,7 @@ export default function Hero() {
         <Reveal delay={0.55}>
           <div className="flex flex-wrap items-center gap-4">
             <button
-              onClick={() => document.querySelector("#design")?.scrollIntoView({ behavior: "smooth" })}
+              onClick={() => document.querySelector("#dev")?.scrollIntoView({ behavior: "smooth" })}
               data-cursor="VIEW"
               className="mag-btn px-8 py-4 bg-accent text-canvas font-display font-semibold text-sm tracking-widest uppercase hover:bg-accent-dim transition-colors duration-300"
             >
