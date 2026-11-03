@@ -5,7 +5,9 @@ export interface CaseStudySection {
   label: string;
   heading: string;
   paragraphs?: string[];
+  table?: [string, string][];
   points?: { title?: string; text: string }[];
+  bullets?: string[];
   closing?: string[];
 }
 

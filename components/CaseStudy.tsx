@@ -63,6 +63,17 @@ export default function CaseStudy({ study }: { study: CaseStudyData }) {
                     </p>
                   ))}
 
+                  {section.table && (
+                    <dl className="border border-white/5 bg-canvas-soft divide-y divide-white/5">
+                      {section.table.map(([measure, result]) => (
+                        <div key={measure} className="grid grid-cols-1 sm:grid-cols-[12rem_1fr] gap-1 sm:gap-6 px-6 py-4">
+                          <dt className="font-display text-text-3 text-xs tracking-widest uppercase sm:pt-0.5">{measure}</dt>
+                          <dd className="font-body text-text-1 text-sm leading-relaxed">{result}</dd>
+                        </div>
+                      ))}
+                    </dl>
+                  )}
+
                   {section.points && (
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       {section.points.map(({ title, text }) => (
@@ -74,6 +85,17 @@ export default function CaseStudy({ study }: { study: CaseStudyData }) {
                         </div>
                       ))}
                     </div>
+                  )}
+
+                  {section.bullets && (
+                    <ul className="space-y-3">
+                      {section.bullets.map((text) => (
+                        <li key={text} className="flex gap-4 font-body text-text-2 text-lg leading-relaxed">
+                          <span className="mt-3 shrink-0 w-4 h-px bg-accent" />
+                          {text}
+                        </li>
+                      ))}
+                    </ul>
                   )}
 
                   {section.closing?.map((text) => (
