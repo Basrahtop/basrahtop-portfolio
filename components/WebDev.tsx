@@ -18,9 +18,9 @@ interface Project {
 
 const PROJECTS: Project[] = [
   {
-    title: "Aegis",
-    description: "Multi-model AI security code review and audit. Model reviewers propose findings, a verifier jury votes on them, and deterministic scanners run alongside. Private and under active development. Details and demo on request.",
-    stack: ["AI Agents", "Multi-Model", "Security"],
+    title: "Aegis Review",
+    description: "AI code review and security audit that has to prove its findings. A GitHub App on Cloudflare Workers: hunter models propose findings, a separate jury votes on each one, and standard scanners run alongside. Confirmed findings go out privately as draft security advisories. Private and under active development. Details and demo on request.",
+    stack: ["Cloudflare Workers", "GitHub App", "Multi-Model", "Security"],
     internal: { href: "/aegis", label: "Read the case study" },
     status: "Private",
   },

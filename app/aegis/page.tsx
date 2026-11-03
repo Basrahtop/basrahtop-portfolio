@@ -3,8 +3,8 @@ import CaseStudy from "@/components/CaseStudy";
 import { AEGIS } from "@/lib/aegis";
 
 export const metadata: Metadata = {
-  title: "Aegis case study | Abdulbasit Adigun",
-  description: "Aegis: multi-model AI security code review and audit. Private and under active development.",
+  title: "Aegis Review case study | Abdulbasit Adigun",
+  description: "Aegis Review: AI code review and security audit that has to prove its findings. Private and under active development.",
 };
 
 export default function AegisPage() {
