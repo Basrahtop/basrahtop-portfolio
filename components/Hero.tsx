@@ -2,9 +2,10 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { NEXTRIUM_URL, NEXTRIUM_ROLE } from "@/lib/site";
 
-const ROLES = ["Graphic Designer", "Web Developer", "Marketing Strategist", "Event Organiser", "Volunteer", "Creative"];
-const VOWEL_ROLES = ["Event Organiser"];
+const ROLES = ["Applied AI Engineer", "Founder, NexTrium", "Full-Stack Developer", "Graphic Designer", "Event Organiser", "Cardano Reviewer"];
+const VOWEL_ROLES = ["Applied AI Engineer", "Event Organiser"];
 
 /* ── Reusable reveal wrapper ─────────────────────── */
 function Reveal({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
@@ -101,7 +102,7 @@ export default function Hero() {
 
         {/* Animated role switcher */}
         <Reveal delay={0.35}>
-          <div className="flex items-center gap-3 mb-10 overflow-hidden h-12">
+          <div className="flex items-center gap-3 mb-3 overflow-hidden h-12">
             <span className="text-text-2 font-body text-xl italic">I am {VOWEL_ROLES.includes(ROLES[roleIndex]) ? "an" : "a"}</span>
             <div className="relative overflow-hidden h-12 flex items-center">
               <AnimatePresence mode="wait">
@@ -111,7 +112,7 @@ export default function Hero() {
                   animate={{ y: 0, opacity: 1 }}
                   exit={{ y: -48, opacity: 0 }}
                   transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-                  className="block font-display text-2xl md:text-3xl font-semibold text-accent"
+                  className="block whitespace-nowrap font-display text-xl sm:text-2xl md:text-3xl font-semibold text-accent"
                 >
                   {ROLES[roleIndex]}
                 </motion.span>
@@ -120,10 +121,29 @@ export default function Hero() {
           </div>
         </Reveal>
 
+        {/* NexTrium */}
+        <Reveal delay={0.4}>
+          <p className="font-display text-text-3 text-xs tracking-widest uppercase mb-10">
+            {NEXTRIUM_URL ? (
+              <a
+                href={NEXTRIUM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-cursor="VISIT"
+                className="hover:text-accent transition-colors duration-200"
+              >
+                {NEXTRIUM_ROLE}
+              </a>
+            ) : (
+              NEXTRIUM_ROLE
+            )}
+          </p>
+        </Reveal>
+
         {/* Tagline */}
         <Reveal delay={0.45}>
           <p className="font-body text-text-2 text-lg md:text-xl max-w-md leading-relaxed mb-14">
-            Crafting bold visual identities, seamless digital experiences, and unforgettable events.
+            Building applied AI systems at NexTrium, alongside full-stack products, visual design and community events.
           </p>
         </Reveal>
 
@@ -131,7 +151,7 @@ export default function Hero() {
         <Reveal delay={0.55}>
           <div className="flex flex-wrap items-center gap-4">
             <button
-              onClick={() => document.querySelector("#design")?.scrollIntoView({ behavior: "smooth" })}
+              onClick={() => document.querySelector("#dev")?.scrollIntoView({ behavior: "smooth" })}
               data-cursor="VIEW"
               className="mag-btn px-8 py-4 bg-accent text-canvas font-display font-semibold text-sm tracking-widest uppercase hover:bg-accent-dim transition-colors duration-300"
             >

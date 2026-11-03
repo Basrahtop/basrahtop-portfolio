@@ -4,8 +4,8 @@ import Image from "next/image";
 import SectionReveal from "./SectionReveal";
 
 const SKILLS = [
-  "Brand Identity", "Typography", "UI/UX Design",
-  "Motion Graphics", "Web Development", "Event Production",
+  "Applied AI", "AI Agents", "Full-Stack Development",
+  "Brand Identity", "UI/UX Design", "Event Production",
 ];
 
 const STATS = [
@@ -73,17 +73,17 @@ export default function About() {
 
             <SectionReveal delay={0.25}>
               <p className="font-body text-text-2 text-lg leading-relaxed">
-              I&apos;m a multi-disciplinary creative with a passion for design that communicates,{" "}
-              code that performs, and events that connect people. I believe great work happens{" "}
-              at the intersection of aesthetics and function.
+              I&apos;m an Applied AI Engineer and the founder of NexTrium Global Innovations Ltd.{" "}
+              I design AI systems and direct the work: I set the requirements and make the{" "}
+              decisions, and AI coding agents write most of the code.
             </p>
           </SectionReveal>
 
             <SectionReveal delay={0.3}>
               <p className="font-body text-text-2 leading-relaxed">
-                When I&apos;m not pushing pixels or writing code, you&apos;ll find me organising{" "}
-              community events or volunteering for causes close to my heart.{" "}
-                Every project is an opportunity to make something meaningful.
+                Alongside AI, I work across full-stack development, graphic design and the Cardano{" "}
+                ecosystem, and that range shapes how I build. When I&apos;m not building,{" "}
+                you&apos;ll find me organising community events or volunteering for causes close to my heart.
               </p>
             </SectionReveal>
 

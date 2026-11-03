@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import SectionReveal from "./SectionReveal";
 
@@ -10,10 +11,41 @@ interface Project {
   stack: string[];
   live?: string;
   github?: string;
-  status: "Live" | "In Progress" | "Open Source";
+  internal?: { href: string; label: string };
+  article?: { href: string; label: string };
+  status: "Live" | "In Progress" | "Open Source" | "Private";
 }
 
 const PROJECTS: Project[] = [
+  {
+    title: "Aegis",
+    description: "Multi-model AI security code review and audit. Model reviewers propose findings, a verifier jury votes on them, and deterministic scanners run alongside. Private and under active development. Details and demo on request.",
+    stack: ["AI Agents", "Multi-Model", "Security"],
+    internal: { href: "/aegis", label: "Read the case study" },
+    status: "Private",
+  },
+  {
+    title: "Showrium",
+    description: "Idea-to-post platform that turns one idea into platform-native posts, running on Cloudflare Workers with a public API, a TypeScript SDK and an MCP server. In beta.",
+    stack: ["TypeScript", "React", "Cloudflare Workers", "D1", "MCP"],
+    live: "https://showrium.com",
+    github: "https://github.com/Nextrium/showrium",
+    article: { href: "https://www.nextrium.org/blog/showrium-engineering", label: "Engineering blog" },
+    status: "Open Source",
+  },
+  {
+    title: "Aegis Scan",
+    description: "Reusable GitHub Actions workflow that runs pinned security scanners (Opengrep, OSV-Scanner, Gitleaks, zizmor) on a commit and uploads the results to Aegis for triage.",
+    stack: ["GitHub Actions", "Security", "OIDC"],
+    github: "https://github.com/Nextrium/aegis-scan",
+    status: "Open Source",
+  },
+  {
+    title: "AI Candidate Screening Agent",
+    description: "Candidate screening agent built on a multi-model ensemble, with a candidate rebuttal step and recruiter override.",
+    stack: ["AI Agents", "Multi-Model"],
+    status: "Private",
+  },
   {
     title: "Catalyst",
     description: "Blockchain-powered financial inclusion platform transforming Nigeria's 40M invisible MSMEs into a globally investible asset class. Replaces collateral with verifiable digital trust via a 1,000-point reputation engine, multi-currency investment (NGN, ADA, USDM), Aiken smart contract escrow, and a regenerative 4-Way Split profit model — bridging a $32.2B SME financing gap.",
@@ -63,6 +95,7 @@ const STATUS_COLORS: Record<string, string> = {
   "Live":        "bg-emerald-500/20 text-emerald-400 border-emerald-500/30",
   "In Progress": "bg-amber-500/20   text-amber-400   border-amber-500/30",
   "Open Source": "bg-accent/20       text-accent       border-accent/30",
+  "Private":     "bg-white/10        text-text-2       border-white/20",
 };
 
 export default function WebDev() {
@@ -116,7 +149,7 @@ export default function WebDev() {
                   <span className={`text-[10px] font-display tracking-widest uppercase border px-3 py-1 ${STATUS_COLORS[project.status]}`}>
                     {project.status}
                   </span>
-                  <span className="text-text-3 font-display text-xs">0{i + 1}</span>
+                  <span className="text-text-3 font-display text-xs">{String(i + 1).padStart(2, "0")}</span>
                 </div>
 
                 {/* Title */}
@@ -142,7 +175,19 @@ export default function WebDev() {
                 </div>
 
                 {/* Links */}
-                <div className="flex items-center gap-4 mt-auto">
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mt-auto">
+                  {project.internal && (
+                    <Link
+                      href={project.internal.href}
+                      data-cursor="READ"
+                      className="flex items-center gap-1.5 text-xs font-display tracking-wide text-accent hover:underline"
+                    >
+                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                      {project.internal.label}
+                    </Link>
+                  )}
                   {project.live && (
                     <a
                       href={project.live}
@@ -169,6 +214,20 @@ export default function WebDev() {
                         <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
                       </svg>
                       GitHub
+                    </a>
+                  )}
+                  {project.article && (
+                    <a
+                      href={project.article.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-cursor="READ"
+                      className="flex items-center gap-1.5 text-xs font-display tracking-wide text-text-2 hover:text-text-1"
+                    >
+                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                      {project.article.label}
                     </a>
                   )}
                 </div>
