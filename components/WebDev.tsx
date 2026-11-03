@@ -41,9 +41,10 @@ const PROJECTS: Project[] = [
     status: "Open Source",
   },
   {
-    title: "AI Candidate Screening Agent",
-    description: "Candidate screening agent built on a multi-model ensemble, with a candidate rebuttal step and recruiter override.",
-    stack: ["AI Agents", "Multi-Model"],
+    title: "Candour",
+    description: "Candidate screening that explains itself and can be challenged. Several models score each applicant against role-specific rubrics, every candidate gets a written reason and one evidence-backed rebuttal, and a recruiter can override the outcome. Private, in production and under active development. Details and demo on request.",
+    stack: ["TypeScript", "Node", "Supabase", "Multi-Model"],
+    internal: { href: "/candour", label: "Read the case study" },
     status: "Private",
   },
   {
